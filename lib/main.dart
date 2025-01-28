@@ -6,7 +6,7 @@ import 'package:mis_project/screens/thesis_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Add this line
+  WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferences.getInstance();
   runApp(const MyApp());
 }

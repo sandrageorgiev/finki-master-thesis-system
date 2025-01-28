@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BaseAppBar(title: ''),
+      appBar: const BaseAppBar(title: '', route: '/'),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 40),
               const Text(
-                'Систем за управување со магистерски трудови',
+                'Систем за преглед на магистерски трудови',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 28,
@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/logo.png',
                   width: double.infinity,
-                  height: 100,
+                  height: 150,
                   fit: BoxFit.contain,
                 ),
               ),
