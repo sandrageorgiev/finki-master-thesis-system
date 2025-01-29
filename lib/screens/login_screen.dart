@@ -110,7 +110,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       _usernameController.text,
                       _passwordController.text,
                     );
-                    Navigator.pushReplacementNamed(context, '/');
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/', (route) => false);
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(e.toString())),

@@ -49,7 +49,8 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
             ElevatedButton.icon(
               onPressed: () async {
                 await AuthService.logout();
-                Navigator.pushReplacementNamed(context, '/');
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/', (route) => false);
               },
               icon: const Icon(Icons.logout),
               label: const Text('Logout'),
