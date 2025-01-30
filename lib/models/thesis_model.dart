@@ -1,6 +1,7 @@
 class Thesis {
   final String id;
   final String title;
+  final String studentId;
   final String student;
   final String description;
   final String pdfUrl;
@@ -8,6 +9,7 @@ class Thesis {
   Thesis(
       {required this.id,
       required this.title,
+      required this.studentId,
       required this.student,
       required this.description,
       String? pdfUrl})
@@ -17,6 +19,7 @@ class Thesis {
     return Thesis(
       id: json['id'],
       title: json['title'],
+      studentId: json['studentId'],
       student: json['student'],
       description: json['location'],
       pdfUrl: json['pdfUrl'],
@@ -27,6 +30,7 @@ class Thesis {
     return {
       'id': id,
       'title': title,
+      'studentId': studentId,
       'student': student,
       'description': description,
       'pdfUrl': pdfUrl,

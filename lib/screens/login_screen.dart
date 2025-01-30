@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: _usernameController,
                       decoration: const InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'username@finki.ukim.mk',
+                        hintText: '210101',
                         hintStyle: TextStyle(color: Colors.grey),
                       ),
                     ),

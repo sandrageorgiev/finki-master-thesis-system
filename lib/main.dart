@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mis_project/screens/home_screen.dart';
 import 'package:mis_project/screens/login_screen.dart';
+import 'package:mis_project/screens/my_thesis_screen.dart';
 import 'package:mis_project/screens/process_screen.dart';
 import 'package:mis_project/screens/thesis_details_screen.dart';
 import 'package:mis_project/screens/thesis_list.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/process': (context) => const ProcessScreen(),
         '/login': (context) => const LoginScreen(),
         '/thesis_details': (context) => const ThesisDetails(),
+        '/my_thesis': (context) => const MyThesis(),
       },
     );
   }

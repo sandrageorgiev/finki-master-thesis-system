@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mis_project/models/auth_model.dart';
 import 'package:mis_project/services/auth_service.dart';
+import 'package:mis_project/services/thesis_service.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -9,6 +10,9 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BaseAppBar({super.key, required this.title, required this.route});
 
   void _showUserMenu(BuildContext context, User user) {
+    final thesis = ThesisService.getThesisByStudentId(user.username);
+    final name = thesis?.student;
+
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.grey[200],
@@ -28,13 +32,13 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hi, ${user.username} !',
+                      'Hi, ${name} !',
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text('(${user.role})',
+                    Text('(${user.username})',
                         style: const TextStyle(color: Colors.grey)),
                   ],
                 ),
