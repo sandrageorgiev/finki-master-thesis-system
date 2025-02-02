@@ -13,7 +13,8 @@ class Thesis {
       required this.student,
       required this.description,
       String? pdfUrl})
-      : pdfUrl = pdfUrl ?? '${student.replaceAll(' ', '')}.pdf';
+      // : pdfUrl = pdfUrl ?? '${student.replaceAll(' ', '')}.pdf';
+      : pdfUrl = pdfUrl ?? '$studentId.pdf';
 
   factory Thesis.fromJson(Map<String, dynamic> json) {
     return Thesis(

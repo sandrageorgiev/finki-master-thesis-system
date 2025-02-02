@@ -75,7 +75,8 @@ class ThesisDetails extends StatelessWidget {
                     await PdfService.downloadAndOpenPdf(thesis.pdfUrl);
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Error opening PDF: $e')),
+                      const SnackBar(
+                          content: Text('Се уште не е прикачен трудот')),
                     );
                   }
                 },
