@@ -15,7 +15,17 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const SizedBox(height: 40),
+              Container(
+                width: double.infinity,
+                color: Colors.grey[200],
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: double.infinity,
+                  height: 150,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: 90),
               const Text(
                 'Систем за преглед на магистерски трудови',
                 textAlign: TextAlign.center,
@@ -25,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.blue,
                 ),
               ),
-              const Spacer(),
+              const SizedBox(height: 130),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -59,7 +69,14 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  FutureBuilder<User?>(
+                    future: AuthService.getLoggedInUser(),
+                    builder: (context, snapshot) {
+                      return SizedBox(
+                        height: snapshot.hasData ? 16 : 50,
+                      );
+                    },
+                  ),
                   FutureBuilder<User?>(
                     future: AuthService.getLoggedInUser(),
                     builder: (context, snapshot) {
@@ -87,16 +104,6 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Container(
-                width: double.infinity,
-                color: Colors.grey[200],
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  width: double.infinity,
-                  height: 150,
-                  fit: BoxFit.contain,
-                ),
-              ),
             ],
           ),
         ),
@@ -104,102 +111,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
-// import 'package:flutter/material.dart';
-
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SafeArea(
-//         child: Padding(
-//           padding: const EdgeInsets.all(20.0),
-//           child: Column(
-//             children: [
-//               const SizedBox(height: 40),
-//               const Text(
-//                 'Систем за управување со магистерски трудови',
-//                 textAlign: TextAlign.center,
-//                 style: TextStyle(
-//                   fontSize: 28,
-//                   fontWeight: FontWeight.bold,
-//                   color: Colors.blue,
-//                 ),
-//               ),
-//               const Spacer(),
-//               Column(
-//                 mainAxisSize: MainAxisSize.min,
-//                 children: [
-//                   ElevatedButton(
-//                     onPressed: () {
-//                       Navigator.pushNamed(context, '/thesis_list');
-//                     },
-//                     style: ElevatedButton.styleFrom(
-//                       backgroundColor: Colors.grey[200],
-//                       minimumSize: const Size(double.infinity, 50),
-//                       shape: RoundedRectangleBorder(
-//                         borderRadius: BorderRadius.circular(8),
-//                       ),
-//                     ),
-//                     child: const Text(
-//                       'Листа на магистерски трудови',
-//                       style: TextStyle(color: Colors.blue),
-//                     ),
-//                   ),
-//                   const SizedBox(height: 16),
-//                   ElevatedButton(
-//                     onPressed: () {
-//                       Navigator.pushNamed(context, '/process');
-//                     },
-//                     style: ElevatedButton.styleFrom(
-//                       backgroundColor: Colors.blue,
-//                       minimumSize: const Size(double.infinity, 50),
-//                       shape: RoundedRectangleBorder(
-//                         borderRadius: BorderRadius.circular(8),
-//                       ),
-//                     ),
-//                     child: const Text(
-//                       'Постапка за пријавување',
-//                       style: TextStyle(color: Colors.white),
-//                     ),
-//                   ),
-//                   const SizedBox(height: 16),
-//                   ElevatedButton(
-//                     onPressed: () {
-//                       Navigator.pushNamed(context, '/login');
-//                     },
-//                     style: ElevatedButton.styleFrom(
-//                       backgroundColor: Colors.grey[200],
-//                       minimumSize: const Size(double.infinity, 50),
-//                       shape: RoundedRectangleBorder(
-//                         borderRadius: BorderRadius.circular(8),
-//                       ),
-//                     ),
-//                     child: const Text(
-//                       'Најави се',
-//                       style: TextStyle(color: Colors.blue),
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//               const Spacer(),
-//               Container(
-//                 width: double.infinity,
-//                 color: Colors.grey[200],
-//                 child: Image.asset(
-//                   'assets/images/logo.png',
-//                   width: double.infinity,
-//                   height: 100,
-//                   fit: BoxFit.contain,
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
